@@ -64,5 +64,10 @@ public class Resep {
     public void setObat(Obat[] obat) {
         this.obat = obat;
     }
+
+    @Override
+    public String toString() {
+        return getIdResep() + " " + getTanggalResep()+" "+getObat();
+    }
     
 }

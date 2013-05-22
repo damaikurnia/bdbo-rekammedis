@@ -9,6 +9,7 @@ package Data;
  * @author a9uszT
  */
 public class Obat {
+
     private String idObat;
     private String namaObat;
     private String komposisi;
@@ -23,7 +24,6 @@ public class Obat {
         this.komposisi = komposisi;
         this.tipe = tipe;
     }
-    
 
     /**
      * @return the idObat
@@ -80,5 +80,9 @@ public class Obat {
     public void setTipe(String tipe) {
         this.tipe = tipe;
     }
-    
+
+    @Override
+    public String toString() {
+        return getIdObat() + " " + getNamaObat() + " " + getKomposisi() + " " + getTipe();
+    }
 }

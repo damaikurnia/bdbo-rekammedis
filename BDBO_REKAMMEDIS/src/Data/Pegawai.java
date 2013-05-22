@@ -9,6 +9,7 @@ package Data;
  * @author a9uszT
  */
 public class Pegawai {
+
     private String idPegawai;
     private String namaPegawai;
     private String passwordPegawai;
@@ -21,8 +22,6 @@ public class Pegawai {
         this.namaPegawai = namaPegawai;
         this.passwordPegawai = passwordPegawai;
     }
-
-
 
     /**
      * @return the idPegawai
@@ -66,6 +65,8 @@ public class Pegawai {
         this.passwordPegawai = passwordPegawai;
     }
 
-    
-    
+    @Override
+    public String toString() {
+        return getIdPegawai() + " " + getNamaPegawai();
+    }
 }

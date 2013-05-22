@@ -9,6 +9,7 @@ package Data;
  * @author a9uszT
  */
 public class Dokter {
+
     private String idDokter;
     private String namaDokter;
     private String passwordDokter;
@@ -21,7 +22,6 @@ public class Dokter {
         this.namaDokter = namaDokter;
         this.passwordDokter = passwordDokter;
     }
-
 
     /**
      * @return the idDokter
@@ -63,5 +63,10 @@ public class Dokter {
      */
     public void setPasswordDokter(String passwordDokter) {
         this.passwordDokter = passwordDokter;
+    }
+
+    @Override
+    public String toString() {
+        return getIdDokter() + " " + getNamaDokter();
     }
 }
