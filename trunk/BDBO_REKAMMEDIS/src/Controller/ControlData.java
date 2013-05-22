@@ -20,7 +20,7 @@ public class ControlData {
 
     public static void input(Object data) {
         //new File("RekamMedisData.yap").delete();
-        new File("RekamMedisData.yap").canExecute();
+//        new File("RekamMedisData.yap").canExecute();
         db = Db4o.openFile("RekamMedisData.yap");
         db.set(data);
 

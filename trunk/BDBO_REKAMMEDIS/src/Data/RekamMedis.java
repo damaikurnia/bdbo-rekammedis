@@ -164,6 +164,7 @@ public class RekamMedis {
     @Override
     public String toString() {
         return " [ " + getIdRekamMedis() + " ; " + getTanggal_RM() + " ; " + getAnamnesa() + " ; " + getDiagnose() +
-                 " ; " + getTherapy() + " ; " + getPasien().getNama() + " ; " + getDokter().getNamaDokter() +" ] ";
+                 " ; " + getTherapy() + " ; " + getPasien().getNama() + " ; " + getDokter().getNamaDokter() + " ; " +
+                 " ] ";
     }
 }
