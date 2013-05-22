@@ -236,6 +236,9 @@ public class Frame_petugas extends javax.swing.JFrame {
     }//GEN-LAST:event_PencarianActionPerformed
 
     private void RegistrasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrasiActionPerformed
+    Registrasi reg=new Registrasi();
+    reg.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_RegistrasiActionPerformed
 
     private void cetakResepMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cetakResepMenuActionPerformed

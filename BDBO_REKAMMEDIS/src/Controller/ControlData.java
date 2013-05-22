@@ -5,10 +5,13 @@
 package Controller;
 
 import Data.Obat;
+import Data.Pasien;
 import com.db4o.Db4o;
 import com.db4o.ObjectContainer;
 import com.db4o.ObjectSet;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -37,5 +40,13 @@ public class ControlData {
            obt=(Obat[])(res.next());
         }
         return  obt;
+    }
+
+    public static List<Pasien> ResultPasien(ObjectSet res) {
+        List<Pasien> barang = new ArrayList<Pasien>();
+        while (res.hasNext()) {
+          
+        }
+        return  barang;
     }
 }
