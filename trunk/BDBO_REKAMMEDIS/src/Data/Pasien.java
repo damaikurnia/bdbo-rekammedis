@@ -31,8 +31,6 @@ public class Pasien {
         this.fakultas = fakultas;
     }
 
-    
-
     public String getId() {
         return id;
     }
@@ -57,7 +55,6 @@ public class Pasien {
         this.alamat = alamat;
     }
 
-   
     public String getJeniskelamin() {
         return jeniskelamin;
     }
@@ -94,5 +91,10 @@ public class Pasien {
      */
     public void setTanggallahir(String tanggallahir) {
         this.tanggallahir = tanggallahir;
+    }
+
+    @Override
+    public String toString() {
+        return getId() + " " + getNama() + " " + getAlamat() + " " + getTanggallahir() + "" + getJeniskelamin() + " " + getFakultas();
     }
 }
