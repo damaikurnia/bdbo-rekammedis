@@ -22,8 +22,6 @@ public class ControlData {
     public static ObjectContainer db;
 
     public static void input(Object data) {
-        //new File("RekamMedisData.yap").delete();
-//        new File("RekamMedisData.yap").canExecute();
         db = Db4o.openFile("RekamMedisData.yap");
         db.set(data);
 
