@@ -227,7 +227,7 @@ public class Menu_Utama extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void masuk_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masuk_buttonActionPerformed
-        if (!PetugasRB.isSelected() && !dokter_RB.isSelected()&&usernameTF.equals("")&&password_TF.equals("")) {
+        if (!PetugasRB.isSelected() && !dokter_RB.isSelected() && usernameTF.equals("") && password_TF.equals("")) {
             JOptionPane.showMessageDialog(rootPane, "inputan tidak lengkap");
         } else {
             String id = usernameTF.getText();
@@ -240,6 +240,9 @@ public class Menu_Utama extends javax.swing.JFrame {
                         FP.setVisible(true);
                         emptyField();
                         this.dispose();
+                        String nama = ControlData.NamaPetugas(id);
+//                        System.out.println(nama+" hahahah");
+                        Frame_petugas.Nama_label.setText(nama);
                     } else {
                         JOptionPane.showMessageDialog(rootPane, "username dan password salah\n silahkan username dan "
                                 + "password lagi");
@@ -250,7 +253,7 @@ public class Menu_Utama extends javax.swing.JFrame {
                 } catch (Exception ex) {
                     Logger.getLogger(Menu_Utama.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } else if(dokter_RB.isSelected()){
+            } else if (dokter_RB.isSelected()) {
                 try {
                     boolean cek = ControlData.LoginDokter(id, passwd);
                     if (cek == true) {
@@ -258,6 +261,9 @@ public class Menu_Utama extends javax.swing.JFrame {
                         FP.setVisible(true);
                         emptyField();
                         this.dispose();
+                         String nama = ControlData.NamaDokter(id);
+//                        System.out.println(nama+" hahahah");
+                        Frame_dokter.Nama_label.setText(nama);
                     } else {
                         JOptionPane.showMessageDialog(rootPane, "username dan password salah\n silahkan isi lagi");
                         emptyField();
@@ -302,6 +308,7 @@ public class Menu_Utama extends javax.swing.JFrame {
         }
         //</editor-fold>
         java.awt.EventQueue.invokeLater(new Runnable() {
+
             public void run() {
                 new Menu_Utama().setVisible(true);
             }

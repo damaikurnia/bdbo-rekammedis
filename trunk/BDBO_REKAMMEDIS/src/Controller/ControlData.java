@@ -45,8 +45,8 @@ public class ControlData {
     }
 
     public static boolean LoginPetugas(String id, String password) throws SQLException {
-         boolean cek = false;
-         bukaDatabase();
+        boolean cek = false;
+        bukaDatabase();
         Query query = db.query();
         query.constrain(Pegawai.class);
         query.descend("idPegawai").constrain(id); // search a name
@@ -57,9 +57,45 @@ public class ControlData {
         }
         return cek;
     }
+
+    public static String NamaPetugas(final String id) throws SQLException {
+        String cek = "";
+         List<Pegawai> persons = db.query(new Predicate<Pegawai>()
+      {
+            @Override
+        public boolean match(Pegawai person)
+        {
+            return person.getIdPegawai().equalsIgnoreCase(id);
+        }
+      });
+
+      // Menampilkan hasil query
+      for(Pegawai person : persons)
+        cek=(person.getNamaPegawai());
+
+        return cek;
+    }
+    public static String NamaDokter(final String id) throws SQLException {
+        String cek = "";
+         List<Dokter> persons = db.query(new Predicate<Dokter>()
+      {
+            @Override
+        public boolean match(Dokter person)
+        {
+            return person.getIdDokter().equalsIgnoreCase(id);
+        }
+      });
+
+      // Menampilkan hasil query
+      for(Dokter person : persons)
+        cek=(person.getNamaDokter());
+
+        return cek;
+    }
+
     public static boolean LoginDokter(String id, String password) throws SQLException {
-         boolean cek = false;
-         bukaDatabase();
+        boolean cek = false;
+        bukaDatabase();
         Query query = db.query();
         query.constrain(Dokter.class);
         query.descend("idDokter").constrain(id); // search a name
