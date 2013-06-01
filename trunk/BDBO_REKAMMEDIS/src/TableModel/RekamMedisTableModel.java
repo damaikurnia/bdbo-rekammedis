@@ -4,7 +4,7 @@
  */
 package TableModel;
 
-import Data.RekamMedis;
+import Data.RekamMedisData;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -15,9 +15,9 @@ import javax.swing.table.AbstractTableModel;
  */
 public class RekamMedisTableModel extends AbstractTableModel {
 
-    private List<RekamMedis> RM = new ArrayList<RekamMedis>();
+    private List<RekamMedisData> RM = new ArrayList<RekamMedisData>();
 
-    public RekamMedisTableModel(List<RekamMedis> RMdt) {
+    public RekamMedisTableModel(List<RekamMedisData> RMdt) {
         this.RM = RMdt;
     }
 
@@ -33,7 +33,7 @@ public class RekamMedisTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        RekamMedis k = RM.get(rowIndex);
+        RekamMedisData k = RM.get(rowIndex);
         switch (columnIndex) {
             case 0:
                 return k.getIdRekamMedis();

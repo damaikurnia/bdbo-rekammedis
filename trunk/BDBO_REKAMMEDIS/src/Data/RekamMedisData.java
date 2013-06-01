@@ -8,7 +8,7 @@ package Data;
  *
  * @author a9uszT
  */
-public class RekamMedis {
+public class RekamMedisData {
 
     private String idRekamMedis;
     private String Tanggal_RM;
@@ -20,10 +20,10 @@ public class RekamMedis {
     private Resep resep;
     private Pasien pasien;
 
-    public RekamMedis() {
+    public RekamMedisData() {
     }
 
-    public RekamMedis(String idRekamMedis, String Tanggal_RM, String Anamnesa, String Diagnose, String Therapy, Pegawai petugas, Dokter dokter, Resep resep, Pasien pasien) {
+    public RekamMedisData(String idRekamMedis, String Tanggal_RM, String Anamnesa, String Diagnose, String Therapy, Pegawai petugas, Dokter dokter, Resep resep, Pasien pasien) {
         this.idRekamMedis = idRekamMedis;
         this.Tanggal_RM = Tanggal_RM;
         this.Anamnesa = Anamnesa;
