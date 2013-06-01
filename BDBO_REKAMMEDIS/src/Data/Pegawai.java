@@ -67,6 +67,6 @@ public class Pegawai {
 
     @Override
     public String toString() {
-        return getIdPegawai() + " " + getNamaPegawai();
+        return getIdPegawai() + " " + getPasswordPegawai();
     }
 }

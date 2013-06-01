@@ -116,7 +116,6 @@ public class RekamMedis extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cari_internalFrame.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
-        cari_internalFrame.setVisible(true);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -325,7 +324,6 @@ public class RekamMedis extends javax.swing.JFrame {
         jLabel11.setText("Nama");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
 
-        otomatis_rm.setEnabled(false);
         otomatis_rm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 otomatis_rmActionPerformed(evt);
@@ -341,11 +339,7 @@ public class RekamMedis extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel12.setText("Id Pasien");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
-
-        idDokterRM.setEnabled(false);
         jPanel1.add(idDokterRM, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 80, 50, -1));
-
-        namaDokter.setEnabled(false);
         jPanel1.add(namaDokter, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 80, 110, -1));
 
         LDOC.setFont(new java.awt.Font("Tahoma", 1, 14));
@@ -582,16 +576,16 @@ public class RekamMedis extends javax.swing.JFrame {
 //        }
 //    }
 //
-//    public final void tampilTableRM() {
-//        try {
-//            List<RekamMedisData> lkat = ControlData.getAllRMPasien(otomatis_rm.getText());
-//            RekamMedisTableModel KTM = new RekamMedisTableModel(lkat);
-//            rekammedis_table.setModel(KTM);
-//        } catch (Exception ex) {
-//            Logger.getLogger(RekamMedis.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        diagnosa_button.setEnabled(true);
-//    }
+    public final void tampilTableRM() {
+        try {
+            List<RekamMedisData> lkat = ControlData.getAllRMPasien(otomatis_rm.getText());
+            RekamMedisTableModel KTM = new RekamMedisTableModel(lkat);
+            rekammedis_table.setModel(KTM);
+        } catch (Exception ex) {
+            Logger.getLogger(RekamMedis.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        diagnosa_button.setEnabled(true);
+    }
 //    private void automaticNumber() {
 //        try {
 //            Date tgl = tanggalRM.getDate();
