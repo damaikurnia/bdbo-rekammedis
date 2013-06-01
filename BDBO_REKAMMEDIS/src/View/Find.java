@@ -12,7 +12,6 @@ package View;
 
 import Controller.ControlData;
 import Data.Pasien;
-import Data.PasienData;
 import TableModel.pasienTableModel;
 import java.util.List;
 import java.util.logging.Level;
@@ -208,62 +207,62 @@ public class Find extends javax.swing.JFrame {
     }//GEN-LAST:event_exit_buttonActionPerformed
 
     private void cariRM_TFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cariRM_TFKeyReleased
-        String key = cariRM_TF.getText();
-        try {
-            List<Pasien> search = ControlData.listResult(key);
-            pasienTableModel brngTableModel = new pasienTableModel(search);
-            pasien_table.setModel(brngTableModel);
-        } catch (Exception ex) {
-            Logger.getLogger(Registrasi.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        String key = cariRM_TF.getText();
+//        try {
+//            List<Pasien> search = ControlData.listResult(key);
+//            pasienTableModel brngTableModel = new pasienTableModel(search);
+//            pasien_table.setModel(brngTableModel);
+//        } catch (Exception ex) {
+//            Logger.getLogger(Registrasi.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_cariRM_TFKeyReleased
 
     private void pasien_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pasien_tableMouseClicked
-        int i = pasien_table.getSelectedRow();
-        String id = pasien_table.getValueAt(i, 0).toString();
-        String nama = pasien_table.getValueAt(i, 1).toString();
-        String fakt = pasien_table.getValueAt(i, 6).toString();
-        RekamMedis rm = new RekamMedis();
-        try {
-            String idpetugas = ControlData.getKoneksi().cariKodePegawai(nama_petugas.getText());
-            RekamMedis.idPetugasRM.setText(idpetugas);
-            RekamMedis.noRM_TF.setText(id);
-            RekamMedis.nama_TF.setText(nama);
-            RekamMedis.fak_TF.setText(fakt);
-            RekamMedis.noRM_TF.setEditable(false);
-            RekamMedis.noRM_TF.setEnabled(false);
-            String namaPetugas = Frame_petugas.Nama_label.getText();
-            RekamMedis.namaPetugas.setText(namaPetugas);
-            RekamMedis.diagnosa_button.setEnabled(false);
-            RekamMedis.therapi_button.setEnabled(false);
-            RekamMedis.resep_button.setEnabled(false);
-
-            RekamMedis.noRMotomatis();
-            rm.tampilTableRM();
-        } catch (Exception ex) {
-            Logger.getLogger(Find.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        rm.setVisible(true);
-        RekamMedis.diagnosa_button.setVisible(false);
-        RekamMedis.therapi_button.setVisible(false);
-        RekamMedis.resep_button.setVisible(false);
-        RekamMedis.jLabel10.setVisible(true);
-        RekamMedis.idPetugasRM.setVisible(true);
-        RekamMedis.namaPetugas.setVisible(true);
-        this.dispose();
+//        int i = pasien_table.getSelectedRow();
+//        String id = pasien_table.getValueAt(i, 0).toString();
+//        String nama = pasien_table.getValueAt(i, 1).toString();
+//        String fakt = pasien_table.getValueAt(i, 6).toString();
+//        RekamMedis rm = new RekamMedis();
+//        try {
+//            String idpetugas = ControlData.getKoneksi().cariKodePegawai(nama_petugas.getText());
+//            RekamMedis.idPetugasRM.setText(idpetugas);
+//            RekamMedis.noRM_TF.setText(id);
+//            RekamMedis.nama_TF.setText(nama);
+//            RekamMedis.fak_TF.setText(fakt);
+//            RekamMedis.noRM_TF.setEditable(false);
+//            RekamMedis.noRM_TF.setEnabled(false);
+//            String namaPetugas = Frame_petugas.Nama_label.getText();
+//            RekamMedis.namaPetugas.setText(namaPetugas);
+//            RekamMedis.diagnosa_button.setEnabled(false);
+//            RekamMedis.therapi_button.setEnabled(false);
+//            RekamMedis.resep_button.setEnabled(false);
+//
+//            RekamMedis.noRMotomatis();
+//            rm.tampilTableRM();
+//        } catch (Exception ex) {
+//            Logger.getLogger(Find.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        rm.setVisible(true);
+//        RekamMedis.diagnosa_button.setVisible(false);
+//        RekamMedis.therapi_button.setVisible(false);
+//        RekamMedis.resep_button.setVisible(false);
+//        RekamMedis.jLabel10.setVisible(true);
+//        RekamMedis.idPetugasRM.setVisible(true);
+//        RekamMedis.namaPetugas.setVisible(true);
+//        this.dispose();
     }//GEN-LAST:event_pasien_tableMouseClicked
 
     private void cariRM_TFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cariRM_TFKeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_cariRM_TFKeyTyped
     private void tampilTable() {
-        try {
-            List<PasienData> lkat = ControlData.getKoneksi().getAllPasien();
-            pasienTableModel KTM = new pasienTableModel(lkat);
-            pasien_table.setModel(KTM);
-        } catch (Exception ex) {
-            Logger.getLogger(Registrasi.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            List<PasienData> lkat = ControlData.getKoneksi().getAllPasien();
+//            pasienTableModel KTM = new pasienTableModel(lkat);
+//            pasien_table.setModel(KTM);
+//        } catch (Exception ex) {
+//            Logger.getLogger(Registrasi.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 
     /**
@@ -283,13 +282,13 @@ public class Find extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu_Utama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Find.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu_Utama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Find.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu_Utama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Find.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu_Utama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Find.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         java.awt.EventQueue.invokeLater(new Runnable() {
