@@ -44,6 +44,33 @@ public class ControlData {
         db.close();
     }
 
+    public static boolean LoginPetugas(String id, String password) throws SQLException {
+         boolean cek = false;
+         bukaDatabase();
+        Query query = db.query();
+        query.constrain(Pegawai.class);
+        query.descend("idPegawai").constrain(id); // search a name
+        query.descend("passwordPegawai").constrain(password);
+        ObjectSet res = query.execute();
+        if (res.hasNext()) {
+            cek = true;
+        }
+        return cek;
+    }
+    public static boolean LoginDokter(String id, String password) throws SQLException {
+         boolean cek = false;
+         bukaDatabase();
+        Query query = db.query();
+        query.constrain(Dokter.class);
+        query.descend("idDokter").constrain(id); // search a name
+        query.descend("passwordDokter").constrain(password);
+        ObjectSet res = query.execute();
+        if (res.hasNext()) {
+            cek = true;
+        }
+        return cek;
+    }
+
     public static void listResult(ObjectSet res) {
         while (res.hasNext()) {
             System.out.println(res.next());
@@ -87,7 +114,7 @@ public class ControlData {
 //        bukaDatabase();
         Query query = db.query();
         query.constrain(Pasien.class);
-        query.descend("id").constrain(key).like();
+        query.descend("id").descend("nama").descend("fakultas").constrain(key).like();
         ObjectSet res = query.execute();
         while (res.hasNext()) {
             pas = new Pasien();

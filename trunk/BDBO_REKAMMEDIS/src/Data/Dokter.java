@@ -67,6 +67,6 @@ public class Dokter {
 
     @Override
     public String toString() {
-        return getIdDokter() + " " + getNamaDokter();
+        return getIdDokter() + " " + getPasswordDokter();
     }
 }

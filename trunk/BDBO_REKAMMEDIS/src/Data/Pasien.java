@@ -97,4 +97,7 @@ public class Pasien {
     public String toString() {
         return getId() + " " + getNama() + " " + getAlamat() + " " + getTanggallahir() + "" + getJeniskelamin() + " " + getFakultas();
     }
+    public String nomor(){
+        return getId();
+    }
 }
