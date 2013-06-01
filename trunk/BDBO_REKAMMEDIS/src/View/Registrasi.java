@@ -12,6 +12,7 @@ package View;
 
 import Controller.ControlData;
 import Data.Pasien;
+import TableModel.pasienTableModel;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
@@ -29,12 +30,15 @@ import javax.swing.JOptionPane;
  */
 public class Registrasi extends javax.swing.JFrame {
 
-   public Registrasi() {
+    public Registrasi() {
         initComponents();
+        tampilTable();
+        cari_internalFrame.setVisible(false);
+        GregorianCalendar gc = new GregorianCalendar();
+        lahir_chooser.setDate(gc.getTime());
         ButtonGroup bg = new ButtonGroup();
         bg.add(l_radio);
         bg.add(p_radio);
-        
     }
 
     /**
@@ -46,6 +50,14 @@ public class Registrasi extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        cari_internalFrame = new javax.swing.JInternalFrame();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        pasien_table = new javax.swing.JTable();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        cariRM_TF = new javax.swing.JTextField();
+        exit_internal = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -67,6 +79,8 @@ public class Registrasi extends javax.swing.JFrame {
         lahir_chooser = new com.toedter.calendar.JDateChooser();
         l_radio = new javax.swing.JRadioButton();
         p_radio = new javax.swing.JRadioButton();
+        jLabel15 = new javax.swing.JLabel();
+        nama_petugas = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -76,6 +90,106 @@ public class Registrasi extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        pasien_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "nama", "alamat", "no telp", "fakultas/Bag"
+            }
+        ));
+        pasien_table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pasien_tableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(pasien_table);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18));
+        jLabel13.setText("Pencarian");
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18));
+        jLabel14.setText("masukan No RM");
+
+        cariRM_TF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cariRM_TFKeyReleased(evt);
+            }
+        });
+
+        exit_internal.setText("keluar");
+        exit_internal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exit_internalActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(478, Short.MAX_VALUE)
+                .addComponent(exit_internal)
+                .addGap(20, 20, 20))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addGap(110, 110, 110)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addGap(120, 120, 120)
+                                    .addComponent(jLabel13))
+                                .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jLabel14)
+                                    .addGap(26, 26, 26)
+                                    .addComponent(cariRM_TF, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(exit_internal)
+                .addContainerGap(176, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel13)
+                    .addGap(27, 27, 27)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel14)
+                        .addComponent(cariRM_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(18, 18, 18)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(34, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout cari_internalFrameLayout = new javax.swing.GroupLayout(cari_internalFrame.getContentPane());
+        cari_internalFrame.getContentPane().setLayout(cari_internalFrameLayout);
+        cari_internalFrameLayout.setHorizontalGroup(
+            cari_internalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cari_internalFrameLayout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        cari_internalFrameLayout.setVerticalGroup(
+            cari_internalFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(cari_internalFrameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        getContentPane().add(cari_internalFrame, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 570, 310));
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("registrasi"));
@@ -156,14 +270,45 @@ public class Registrasi extends javax.swing.JFrame {
         p_radio.setBackground(new java.awt.Color(0, 153, 255));
         p_radio.setText("Perempuan");
 
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12));
+        jLabel15.setText("Petugas :");
+
+        nama_petugas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        nama_petugas.setText("nama");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(103, 103, 103)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel9))
+                        .addGap(78, 78, 78)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(p_radio)
+                                    .addComponent(l_radio))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                                .addComponent(jLabel15)
+                                .addGap(6, 6, 6)
+                                .addComponent(nama_petugas)
+                                .addGap(51, 51, 51))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(FAKULTAS_COMBO, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(telpTF, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lahir_chooser, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(alamatTF, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(212, Short.MAX_VALUE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
@@ -172,22 +317,10 @@ public class Registrasi extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(131, 131, 131)
-                                .addComponent(namaTF, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel9))
-                                .addGap(78, 78, 78)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(FAKULTAS_COMBO, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(telpTF, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(p_radio)
-                                    .addComponent(l_radio)
-                                    .addComponent(lahir_chooser, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(alamatTF, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(namaTF, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(212, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -251,6 +384,11 @@ public class Registrasi extends javax.swing.JFrame {
                     .addComponent(cari_button)
                     .addComponent(keluar_button))
                 .addGap(48, 48, 48))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nama_petugas)
+                    .addComponent(jLabel15))
+                .addContainerGap(428, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 720, -1));
@@ -331,7 +469,7 @@ public class Registrasi extends javax.swing.JFrame {
                 emptyList();
                 idTF.requestFocus();
                 this.dispose();
-                 ControlData.db.close();
+                ControlData.db.close();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(rootPane, "terjadi error" + ex.getMessage());
             }
@@ -356,7 +494,61 @@ public class Registrasi extends javax.swing.JFrame {
     }//GEN-LAST:event_namaTFKeyReleased
 
     private void cari_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cari_buttonActionPerformed
+        cari_internalFrame.setVisible(true);
 }//GEN-LAST:event_cari_buttonActionPerformed
+
+    private void pasien_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pasien_tableMouseClicked
+//        int i = pasien_table.getSelectedRow();
+//        String id = pasien_table.getValueAt(i, 0).toString();
+//        String nama = pasien_table.getValueAt(i, 1).toString();
+//        String fakt = pasien_table.getValueAt(i, 3).toString();
+//        RekamMedis rm = new RekamMedis();
+//        try {
+//            String idpetugas = ControlData.getKoneksi().cariKodePegawai(nama_petugas.getText());
+//            System.out.println(id);
+//            RekamMedis.idPetugasRM.setText(idpetugas);
+//            RekamMedis.noRM_TF.setText(id);
+//            RekamMedis.nama_TF.setText(nama);
+//            RekamMedis.fak_TF.setText(fakt);
+//            RekamMedis.noRM_TF.setEditable(false);
+//            RekamMedis.noRM_TF.setEnabled(false);
+//            String namaPetugas = Frame_petugas.Nama_label.getText();
+//            RekamMedis.namaPetugas.setText(namaPetugas);
+//            RekamMedis.diagnosa_button.setEnabled(false);
+//            RekamMedis.therapi_button.setEnabled(false);
+//            RekamMedis.resep_button.setEnabled(false);
+//
+//            RekamMedis.noRMotomatis();
+//            rm.tampilTableRM();
+//        } catch (Exception ex) {
+//            Logger.getLogger(Find.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        rm.setVisible(true);
+//        RekamMedis.diagnosa_button.setVisible(false);
+//        RekamMedis.therapi_button.setVisible(false);
+//        RekamMedis.resep_button.setVisible(false);
+//
+//        RekamMedis.jLabel10.setVisible(true);
+//        RekamMedis.idPetugasRM.setVisible(true);
+//        RekamMedis.namaPetugas.setVisible(true);
+//        this.dispose();
+    }//GEN-LAST:event_pasien_tableMouseClicked
+
+    private void cariRM_TFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cariRM_TFKeyReleased
+        String key = cariRM_TF.getText();
+        try {
+            List<Pasien> search = ControlData.ResultPasienSelected(key);
+            pasienTableModel brngTableModel = new pasienTableModel(search);
+            pasien_table.setModel(brngTableModel);
+            tampilTable();
+        } catch (Exception ex) {
+            Logger.getLogger(Registrasi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}//GEN-LAST:event_cariRM_TFKeyReleased
+
+    private void exit_internalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_internalActionPerformed
+        cari_internalFrame.setVisible(false);
+    }//GEN-LAST:event_exit_internalActionPerformed
 
     private void emptyList() {
         idTF.setText("");
@@ -365,6 +557,16 @@ public class Registrasi extends javax.swing.JFrame {
         telpTF.setText("");
         FAKULTAS_COMBO.setSelectedItem("--");
 
+    }
+
+    private void tampilTable() {
+        try {
+            List<Pasien> lkat = ControlData.ResultPasien();
+            pasienTableModel KTM = new pasienTableModel(lkat);
+            pasien_table.setModel(KTM);
+        } catch (Exception ex) {
+            Logger.getLogger(Registrasi.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -405,12 +607,18 @@ public class Registrasi extends javax.swing.JFrame {
     private javax.swing.JComboBox FAKULTAS_COMBO;
     private javax.swing.JTextField alamatTF;
     private javax.swing.JButton batal_button;
+    private javax.swing.JTextField cariRM_TF;
     private javax.swing.JButton cari_button;
+    private javax.swing.JInternalFrame cari_internalFrame;
+    private javax.swing.JButton exit_internal;
     private javax.swing.JTextField idTF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -421,12 +629,16 @@ public class Registrasi extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton keluar_button;
     private javax.swing.JRadioButton l_radio;
     private com.toedter.calendar.JDateChooser lahir_chooser;
     private javax.swing.JTextField namaTF;
+    public static javax.swing.JLabel nama_petugas;
     private javax.swing.JRadioButton p_radio;
+    private javax.swing.JTable pasien_table;
     private javax.swing.JButton simpan_button;
     private javax.swing.JTextField telpTF;
     // End of variables declaration//GEN-END:variables
