@@ -207,14 +207,14 @@ public class Find extends javax.swing.JFrame {
     }//GEN-LAST:event_exit_buttonActionPerformed
 
     private void cariRM_TFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cariRM_TFKeyReleased
-//        String key = cariRM_TF.getText();
-//        try {
-//            List<Pasien> search = ControlData.listResult(key);
-//            pasienTableModel brngTableModel = new pasienTableModel(search);
-//            pasien_table.setModel(brngTableModel);
-//        } catch (Exception ex) {
-//            Logger.getLogger(Registrasi.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        String key = cariRM_TF.getText();
+        try {
+            List<Pasien> search = ControlData.ResultPasienSelected(key);
+            pasienTableModel brngTableModel = new pasienTableModel(search);
+            pasien_table.setModel(brngTableModel);
+        } catch (Exception ex) {
+            Logger.getLogger(Registrasi.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_cariRM_TFKeyReleased
 
     private void pasien_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pasien_tableMouseClicked
@@ -256,13 +256,13 @@ public class Find extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cariRM_TFKeyTyped
     private void tampilTable() {
-//        try {
-//            List<PasienData> lkat = ControlData.getKoneksi().getAllPasien();
-//            pasienTableModel KTM = new pasienTableModel(lkat);
-//            pasien_table.setModel(KTM);
-//        } catch (Exception ex) {
-//            Logger.getLogger(Registrasi.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        try {
+            List<Pasien> lkat = ControlData.ResultPasien();
+            pasienTableModel KTM = new pasienTableModel(lkat);
+            pasien_table.setModel(KTM);
+        } catch (Exception ex) {
+            Logger.getLogger(Registrasi.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
