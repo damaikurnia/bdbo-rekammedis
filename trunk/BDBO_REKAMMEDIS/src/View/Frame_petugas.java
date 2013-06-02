@@ -53,7 +53,7 @@ public class Frame_petugas extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         Registrasi = new javax.swing.JMenuItem();
-        Pencarian = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         RekamMedisMenu = new javax.swing.JMenuItem();
         cetakResepMenu = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -129,7 +129,7 @@ public class Frame_petugas extends javax.swing.JFrame {
         jMenuBar1.setFont(new java.awt.Font("Segoe UI", 1, 18));
 
         jMenu1.setText("Menu");
-        jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 14));
+        jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
         Registrasi.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
         Registrasi.setFont(new java.awt.Font("Segoe UI", 1, 14));
@@ -141,15 +141,10 @@ public class Frame_petugas extends javax.swing.JFrame {
         });
         jMenu1.add(Registrasi);
 
-        Pencarian.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
-        Pencarian.setFont(new java.awt.Font("Segoe UI", 1, 14));
-        Pencarian.setText("Pencarian");
-        Pencarian.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PencarianActionPerformed(evt);
-            }
-        });
-        jMenu1.add(Pencarian);
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jMenuItem1.setText("Pencarian");
+        jMenu1.add(jMenuItem1);
 
         RekamMedisMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
         RekamMedisMenu.setFont(new java.awt.Font("Segoe UI", 1, 14));
@@ -227,13 +222,35 @@ public class Frame_petugas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RekamMedisMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RekamMedisMenuActionPerformed
+        try {
+            RekamMedis rm = new RekamMedis();
+            rm.setVisible(true);
+            this.dispose();
+            RekamMedis.diagnosa_button.setEnabled(false);
+            RekamMedis.therapi_button.setEnabled(false);
+            RekamMedis.resep_button.setEnabled(false);
+            String nama = Nama_label.getText();
+            String kode = ControlData.KodePegawai(nama);
+            RekamMedis.idPetugasRM.setText(kode);
+            RekamMedis.namaPetugas.setText(nama);
+
+            RekamMedis.jLabel10.setVisible(true);
+            RekamMedis.idPetugasRM.setVisible(true);
+            RekamMedis.namaPetugas.setVisible(true);
+            RekamMedis.diagnosa_button.setVisible(false);
+            RekamMedis.therapi_button.setVisible(false);
+            RekamMedis.resep_button.setVisible(false);
+
+        } catch (Exception ex) {
+            Logger.getLogger(Frame_petugas.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_RekamMedisMenuActionPerformed
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
+        this.dispose();
     }//GEN-LAST:event_ExitActionPerformed
 
     private void PencarianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PencarianActionPerformed
-
     }//GEN-LAST:event_PencarianActionPerformed
 
     private void RegistrasiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrasiActionPerformed
@@ -289,7 +306,6 @@ public class Frame_petugas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem Exit;
     public static javax.swing.JLabel Nama_label;
-    private javax.swing.JMenuItem Pencarian;
     private javax.swing.JMenuItem Registrasi;
     private javax.swing.JMenuItem RekamMedisMenu;
     private javax.swing.JMenuItem cetakResepMenu;
@@ -301,6 +317,7 @@ public class Frame_petugas extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel1;
