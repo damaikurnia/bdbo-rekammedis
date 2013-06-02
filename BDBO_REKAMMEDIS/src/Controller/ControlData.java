@@ -60,35 +60,54 @@ public class ControlData {
 
     public static String NamaPetugas(final String id) throws SQLException {
         String cek = "";
-         List<Pegawai> persons = db.query(new Predicate<Pegawai>()
-      {
-            @Override
-        public boolean match(Pegawai person)
-        {
-            return person.getIdPegawai().equalsIgnoreCase(id);
-        }
-      });
+        List<Pegawai> persons = db.query(new Predicate<Pegawai>() {
 
-      // Menampilkan hasil query
-      for(Pegawai person : persons)
-        cek=(person.getNamaPegawai());
+            @Override
+            public boolean match(Pegawai person) {
+                return person.getIdPegawai().equalsIgnoreCase(id);
+            }
+        });
+
+        // Menampilkan hasil query
+        for (Pegawai person : persons) {
+            cek = (person.getNamaPegawai());
+        }
 
         return cek;
     }
+
     public static String NamaDokter(final String id) throws SQLException {
         String cek = "";
-         List<Dokter> persons = db.query(new Predicate<Dokter>()
-      {
-            @Override
-        public boolean match(Dokter person)
-        {
-            return person.getIdDokter().equalsIgnoreCase(id);
-        }
-      });
+        List<Dokter> persons = db.query(new Predicate<Dokter>() {
 
-      // Menampilkan hasil query
-      for(Dokter person : persons)
-        cek=(person.getNamaDokter());
+            @Override
+            public boolean match(Dokter person) {
+                return person.getIdDokter().equalsIgnoreCase(id);
+            }
+        });
+
+        // Menampilkan hasil query
+        for (Dokter person : persons) {
+            cek = (person.getNamaDokter());
+        }
+
+        return cek;
+    }
+
+    public static String KodePegawai(final String nama) throws SQLException {
+        String cek = "";
+        List<Pegawai> persons = db.query(new Predicate<Pegawai>() {
+
+            @Override
+            public boolean match(Pegawai person) {
+                return person.getNamaPegawai().equalsIgnoreCase(nama);
+            }
+        });
+
+        // Menampilkan hasil query
+        for (Pegawai person : persons) {
+            cek = (person.getIdPegawai());
+        }
 
         return cek;
     }
@@ -146,17 +165,17 @@ public class ControlData {
     }
 
     public static Pasien getSelectedPasien(final String key) {
-        Pasien pas = null;
+              Pasien pas = null;
 //        bukaDatabase();
         Query query = db.query();
         query.constrain(Pasien.class);
-        query.descend("id").descend("nama").descend("fakultas").constrain(key).like();
+        query.descend("id").constrain(key).like();
         ObjectSet res = query.execute();
         while (res.hasNext()) {
             pas = new Pasien();
             pas.setId((String) res.get(1));
             pas.setNama((String) res.get(2));
-            pas.setFakultas((String) res.get(7));
+            pas.setFakultas((String) res.get(3));
 
         }
         return pas;
