@@ -111,7 +111,23 @@ public class ControlData {
 
         return cek;
     }
+public static String kodeRM(final String id) throws SQLException {
+        String cek = "";
+        List<RekamMedisData> dtRM = db.query(new Predicate<RekamMedisData>() {
 
+            @Override
+            public boolean match(RekamMedisData person) {
+                return person.getIdRekamMedis().equalsIgnoreCase(id);
+            }
+        });
+
+        // Menampilkan hasil query
+        for (RekamMedisData person : dtRM) {
+            cek = (person.getIdRekamMedis());
+        }
+
+        return cek;
+    }
     public static boolean LoginDokter(String id, String password) throws SQLException {
         boolean cek = false;
         bukaDatabase();
@@ -142,7 +158,7 @@ public class ControlData {
 
     public static List<Pasien> ResultPasien() {
         List<Pasien> pas = new ArrayList<Pasien>();
-        bukaDatabase();
+//        bukaDatabase();
         Query query = db.query();
         query.constrain(Pasien.class);
         ObjectSet res = query.execute();
@@ -174,8 +190,8 @@ public class ControlData {
         while (res.hasNext()) {
             pas = new Pasien();
             pas.setId((String) res.get(1));
-            pas.setNama((String) res.get(2));
-            pas.setFakultas((String) res.get(3));
+//            pas.setNama((String) res.get(2));
+//            pas.setFakultas((String) res.get(3));
 
         }
         return pas;

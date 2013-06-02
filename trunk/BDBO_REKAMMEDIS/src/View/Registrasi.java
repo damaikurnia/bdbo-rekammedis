@@ -91,6 +91,8 @@ public class Registrasi extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        cari_internalFrame.setVisible(true);
+
         pasien_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -273,7 +275,7 @@ public class Registrasi extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12));
         jLabel15.setText("Petugas :");
 
-        nama_petugas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        nama_petugas.setFont(new java.awt.Font("Tahoma", 1, 12));
         nama_petugas.setText("nama");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -498,40 +500,40 @@ public class Registrasi extends javax.swing.JFrame {
 }//GEN-LAST:event_cari_buttonActionPerformed
 
     private void pasien_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pasien_tableMouseClicked
-//        int i = pasien_table.getSelectedRow();
-//        String id = pasien_table.getValueAt(i, 0).toString();
-//        String nama = pasien_table.getValueAt(i, 1).toString();
-//        String fakt = pasien_table.getValueAt(i, 3).toString();
-//        RekamMedis rm = new RekamMedis();
-//        try {
-//            String idpetugas = ControlData.getKoneksi().cariKodePegawai(nama_petugas.getText());
-//            System.out.println(id);
-//            RekamMedis.idPetugasRM.setText(idpetugas);
-//            RekamMedis.noRM_TF.setText(id);
-//            RekamMedis.nama_TF.setText(nama);
-//            RekamMedis.fak_TF.setText(fakt);
-//            RekamMedis.noRM_TF.setEditable(false);
-//            RekamMedis.noRM_TF.setEnabled(false);
-//            String namaPetugas = Frame_petugas.Nama_label.getText();
-//            RekamMedis.namaPetugas.setText(namaPetugas);
-//            RekamMedis.diagnosa_button.setEnabled(false);
-//            RekamMedis.therapi_button.setEnabled(false);
-//            RekamMedis.resep_button.setEnabled(false);
-//
-//            RekamMedis.noRMotomatis();
-//            rm.tampilTableRM();
-//        } catch (Exception ex) {
-//            Logger.getLogger(Find.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        rm.setVisible(true);
-//        RekamMedis.diagnosa_button.setVisible(false);
-//        RekamMedis.therapi_button.setVisible(false);
-//        RekamMedis.resep_button.setVisible(false);
-//
-//        RekamMedis.jLabel10.setVisible(true);
-//        RekamMedis.idPetugasRM.setVisible(true);
-//        RekamMedis.namaPetugas.setVisible(true);
-//        this.dispose();
+        int i = pasien_table.getSelectedRow();
+        String id = pasien_table.getValueAt(i, 0).toString();
+        String nama = pasien_table.getValueAt(i, 1).toString();
+        String fakt = pasien_table.getValueAt(i, 6).toString();
+        RekamMedis rm = new RekamMedis();
+        try {
+            String idpetugas = ControlData.KodePegawai(nama_petugas.getText());
+            System.out.println(id);
+            RekamMedis.idPetugasRM.setText(idpetugas);
+            RekamMedis.noRM_TF.setText(id);
+            RekamMedis.nama_TF.setText(nama);
+            RekamMedis.fak_TF.setText(fakt);
+            RekamMedis.noRM_TF.setEditable(false);
+            RekamMedis.noRM_TF.setEnabled(false);
+            String namaPetugas = Frame_petugas.Nama_label.getText();
+            RekamMedis.namaPetugas.setText(namaPetugas);
+            RekamMedis.diagnosa_button.setEnabled(false);
+            RekamMedis.therapi_button.setEnabled(false);
+            RekamMedis.resep_button.setEnabled(false);
+
+            RekamMedis.noRMotomatis();
+            rm.tampilTableRM();
+        } catch (Exception ex) {
+            Logger.getLogger(Registrasi.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        rm.setVisible(true);
+        RekamMedis.diagnosa_button.setVisible(false);
+        RekamMedis.therapi_button.setVisible(false);
+        RekamMedis.resep_button.setVisible(false);
+
+        RekamMedis.jLabel10.setVisible(true);
+        RekamMedis.idPetugasRM.setVisible(true);
+        RekamMedis.namaPetugas.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_pasien_tableMouseClicked
 
     private void cariRM_TFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cariRM_TFKeyReleased

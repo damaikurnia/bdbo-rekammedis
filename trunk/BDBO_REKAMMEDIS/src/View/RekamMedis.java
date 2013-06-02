@@ -36,7 +36,7 @@ public class RekamMedis extends javax.swing.JFrame {
     public RekamMedis() {
         initComponents();
 
-        tampilTable();
+        //tampilTable();
 //        tampilTableRM();
         GregorianCalendar gc = new GregorianCalendar();
         tanggalRM.setDate(gc.getTime());
@@ -442,7 +442,7 @@ public class RekamMedis extends javax.swing.JFrame {
                 String fakt = b.getFakultas();
                 nama_TF.setText(nama);
                 fak_TF.setText(fakt);
-//                noRMotomatis();
+                noRMotomatis();
                 diagnosa_button.setEnabled(true);
             } else {
                 int status = JOptionPane.showConfirmDialog(rootPane, "cari dalam list tabel ? ",
@@ -621,23 +621,23 @@ public class RekamMedis extends javax.swing.JFrame {
 //        }
 //
 //    }
-//    public static void noRMotomatis() {
-//        try {
-//            String id = noRM_TF.getText();
-//            String a = ControlData.getKoneksi().nomorBaruRM(id);
-//            if (a.equals("null")) {
-//                a = "001";
-//            } else if (a.length() == 1) {
-//                a = "00" + a;
-//            } else if (a.length() == 2) {
-//                a = "0" + a;
-//            }
-//            String rmnew = id + a;
-//            otomatis_rm.setText(rmnew);
-//        } catch (Exception ex) {
-//            Logger.getLogger(RekamMedis.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
+    public static void noRMotomatis() {
+        try {
+            String id = noRM_TF.getText();
+            String a = ControlData.kodeRM(id);
+            if (a.equals("null")) {
+                a = "001";
+            } else if (a.length() == 1) {
+                a = "00" + a;
+            } else if (a.length() == 2) {
+                a = "0" + a;
+            }
+            String rmnew = id.substring(1);
+            otomatis_rm.setText(rmnew);
+        } catch (Exception ex) {
+            Logger.getLogger(RekamMedis.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 //    public void noRMotomatisDokter() {
 //        try {
 //            String id = noRM_TF.getText();
