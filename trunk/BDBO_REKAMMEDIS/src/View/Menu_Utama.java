@@ -250,6 +250,7 @@ public class Menu_Utama extends javax.swing.JFrame {
                         usernameTF.requestFocus();
 
                     }
+                    ControlData.db.close();
                 } catch (Exception ex) {
                     Logger.getLogger(Menu_Utama.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -269,6 +270,7 @@ public class Menu_Utama extends javax.swing.JFrame {
                         emptyField();
                         usernameTF.requestFocus();
                     }
+                    ControlData.db.close();
                 } catch (Exception ex) {
                     Logger.getLogger(Menu_Utama.class.getName()).log(Level.SEVERE, null, ex);
                 }

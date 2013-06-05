@@ -522,9 +522,11 @@ public class Registrasi extends javax.swing.JFrame {
 
             RekamMedis.noRMotomatis();
             rm.tampilTableRM();
+             ControlData.db.close();
         } catch (Exception ex) {
             Logger.getLogger(Registrasi.class.getName()).log(Level.SEVERE, null, ex);
         }
+        ControlData.db.close();
         rm.setVisible(true);
         RekamMedis.diagnosa_button.setVisible(false);
         RekamMedis.therapi_button.setVisible(false);
@@ -546,6 +548,7 @@ public class Registrasi extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(Registrasi.class.getName()).log(Level.SEVERE, null, ex);
         }
+        ControlData.db.close();
 }//GEN-LAST:event_cariRM_TFKeyReleased
 
     private void exit_internalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_internalActionPerformed
@@ -566,6 +569,7 @@ public class Registrasi extends javax.swing.JFrame {
             List<Pasien> lkat = ControlData.ResultPasien();
             pasienTableModel KTM = new pasienTableModel(lkat);
             pasien_table.setModel(KTM);
+            ControlData.db.close();
         } catch (Exception ex) {
             Logger.getLogger(Registrasi.class.getName()).log(Level.SEVERE, null, ex);
         }

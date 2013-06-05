@@ -36,7 +36,7 @@ public class RekamMedis extends javax.swing.JFrame {
     public RekamMedis() {
         initComponents();
 
-        //tampilTable();
+        tampilTable();
 //        tampilTableRM();
         GregorianCalendar gc = new GregorianCalendar();
         tanggalRM.setDate(gc.getTime());
@@ -116,6 +116,7 @@ public class RekamMedis extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cari_internalFrame.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        cari_internalFrame.setVisible(true);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -465,22 +466,22 @@ public class RekamMedis extends javax.swing.JFrame {
     }//GEN-LAST:event_noRM_TFActionPerformed
 
     private void anamnesa_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anamnesa_buttonActionPerformed
-//        Anamnesa an = new Anamnesa();
-//        an.setVisible(true);
-//        an.setMenuowner(this);
-////        this.setEnabled(false);
-//        an.setParent(this);
+        Anamnesa an = new Anamnesa();
+        an.setVisible(true);
+        an.setMenuowner(this);
+//        this.setEnabled(false);
+        an.setParent(this);
     }//GEN-LAST:event_anamnesa_buttonActionPerformed
 
     private void cariRM_TFKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cariRM_TFKeyReleased
-//        String key = cariRM_TF.getText();
-//        try {
-//            List<PasienData> search = ControlData.getKoneksi().getCari(key);
-//            pasienTableModel brngTableModel = new pasienTableModel(search);
-//            pasien_table.setModel(brngTableModel);
-//        } catch (Exception ex) {
-//            Logger.getLogger(Registrasi.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        String key = cariRM_TF.getText();
+        try {
+            List<Pasien> search = ControlData.ResultPasienSelected(key);
+            pasienTableModel brngTableModel = new pasienTableModel(search);
+            pasien_table.setModel(brngTableModel);
+        } catch (Exception ex) {
+            Logger.getLogger(Registrasi.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_cariRM_TFKeyReleased
 
     private void pasien_tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pasien_tableMouseClicked
@@ -578,13 +579,14 @@ public class RekamMedis extends javax.swing.JFrame {
 //
     public final void tampilTableRM() {
         try {
-            List<RekamMedisData> lkat = ControlData.getAllRMPasien(otomatis_rm.getText());
+            List<RekamMedisData> lkat = ControlData.getAllRMPasien(noRM_TF.getText());
             RekamMedisTableModel KTM = new RekamMedisTableModel(lkat);
             rekammedis_table.setModel(KTM);
         } catch (Exception ex) {
             Logger.getLogger(RekamMedis.class.getName()).log(Level.SEVERE, null, ex);
         }
         diagnosa_button.setEnabled(true);
+        ControlData.db.close();
     }
 //    private void automaticNumber() {
 //        try {
