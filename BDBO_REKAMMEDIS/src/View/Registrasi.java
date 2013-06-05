@@ -470,7 +470,6 @@ public class Registrasi extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(rootPane, "berhasil disimpan");
                 emptyList();
                 idTF.requestFocus();
-                this.dispose();
                 ControlData.db.close();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(rootPane, "terjadi error" + ex.getMessage());
