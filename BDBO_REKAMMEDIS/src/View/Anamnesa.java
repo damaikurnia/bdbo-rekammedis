@@ -53,8 +53,9 @@ public class Anamnesa extends javax.swing.JFrame {
         idpasienTF.setText(kodePasien);
         idRM.setText(RekamMedis.otomatis_rm.getText());
         try {
-//            String nama = ControlData.getKoneksi().cariNamaPasien(kodePasien);
-//            namaPasienTF.setText(nama);
+            String nama = ControlData.NamaPasien(kodePasien);
+            namaPasienTF.setText(nama);
+            System.out.println(nama);
         } catch (Exception ex) {
             Logger.getLogger(Anamnesa.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -340,50 +341,50 @@ public class Anamnesa extends javax.swing.JFrame {
     }//GEN-LAST:event_batal_btnActionPerformed
 
     private void simpan_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpan_buttonActionPerformed
-//        if (anamnesa_textarea.getText().equalsIgnoreCase("")) {
-//            JOptionPane.showMessageDialog(rootPane, "Anamnesa masih Kosong\n Harap diisi dahulu",
-//                    "Error Anamnesa Kosong", JOptionPane.ERROR_MESSAGE);
-//        } else {
-//            String idpas = idRM.getText();
-//            String isiAnamnesa = anamnesa_textarea.getText();
-//            String idpetugas = idPetugasTF.getText();
-//            Date tgl = tanggal_periksa.getDate();
-//            SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yy");
-//            String tglperiksa = sdf.format(tgl);
-//            RekamMedisData RMD = new RekamMedisData();
-//            Petugas peg = new Petugas();
-//            peg.setIdPetugas(idpetugas);
-//            RMD.setIdRekamMedis(idpas);
-//            RMD.setAnamnesa(isiAnamnesa);
-//            RMD.setTanggal_RM(tglperiksa);
-//            RMD.setPetugas(peg);
-//            if (simpan_button.getText().startsWith("S")) {
-//                try {
-//                    ControlData.getKoneksi().addRekamMedis(RMD);
-//                    JOptionPane.showMessageDialog(rootPane, "sukses masuk");
-//                    parent.tampilTableRM();
-//                    disableEdit();
-//                } catch (Exception ex) {
-//                    JOptionPane.showMessageDialog(rootPane, "error :" + ex.getMessage());
-//                    Logger.getLogger(Anamnesa.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//            } else {
-//                try {
+        if (anamnesa_textarea.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(rootPane, "Anamnesa masih Kosong\n Harap diisi dahulu",
+                    "Error Anamnesa Kosong", JOptionPane.ERROR_MESSAGE);
+        } else {
+            String idpas = idRM.getText();
+            String isiAnamnesa = anamnesa_textarea.getText();
+            String idpetugas = idPetugasTF.getText();
+            Date tgl = tanggal_periksa.getDate();
+            SimpleDateFormat sdf = new SimpleDateFormat("dd-MMM-yy");
+            String tglperiksa = sdf.format(tgl);
+            RekamMedisData RMD = new RekamMedisData();
+            Pegawai peg = new Pegawai();
+            peg.setIdPegawai(idpetugas);
+            RMD.setIdRekamMedis(idpas);
+            RMD.setAnamnesa(isiAnamnesa);
+            RMD.setTanggal_RM(tglperiksa);
+            RMD.setPetugas(peg);
+            if (simpan_button.getText().startsWith("S")) {
+                try {
+                    ControlData.input(new RekamMedisData(idpas,tglperiksa, isiAnamnesa, "", "", peg, null, null,null));
+                    JOptionPane.showMessageDialog(rootPane, "sukses masuk");
+                    parent.tampilTableRM();
+                    disableEdit();
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(rootPane, "error :" + ex.getMessage());
+                    Logger.getLogger(Anamnesa.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                try {
 //                    ControlData.getKoneksi().updateRMAnamnesa(RMD);
-//                    JOptionPane.showMessageDialog(rootPane, "sukses update");
-//                    disableEdit();
-//                    parent.tampilTableRM();
-//                    simpan_button.setText("Simpan");
-//                    RekamMedis rm = new RekamMedis();
-//                    rm.tampilTableRM();
-//                } catch (Exception ex) {
-//                    JOptionPane.showMessageDialog(rootPane, "error :" + ex.getMessage());
-//                    Logger.getLogger(Anamnesa.class.getName()).log(Level.SEVERE, null, ex);
-//                }
-//            }
-//        }
-//        parent.tampilTableRM();
-//        RekamMedis.diagnosa_button.setEnabled(false);
+                    JOptionPane.showMessageDialog(rootPane, "sukses update");
+                    disableEdit();
+                    parent.tampilTableRM();
+                    simpan_button.setText("Simpan");
+                    RekamMedis rm = new RekamMedis();
+                    rm.tampilTableRM();
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(rootPane, "error :" + ex.getMessage());
+                    Logger.getLogger(Anamnesa.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        parent.tampilTableRM();
+        RekamMedis.diagnosa_button.setEnabled(false);
     }//GEN-LAST:event_simpan_buttonActionPerformed
 
     private void idpasienTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idpasienTFActionPerformed
